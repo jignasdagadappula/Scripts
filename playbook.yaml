@@ -1,0 +1,13 @@
+---
+- name: Installing script in master localhost
+  hosts:
+  become: true
+  tasks:
+  - name: Executing scripts
+    script: localhost.sh
+- name: Installing script in slaves
+  hosts: all
+  become: true
+  tasks:
+  - name: Executing scripts
+    script: slave.sh
