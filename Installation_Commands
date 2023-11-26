@@ -14,16 +14,13 @@ sudo apt-get install jenkins -y
 sudo apt install docker.io -y
 
 ## K8S
-# Install kubeadm, kubelet, and kubectl
-sudo apt-get install -y kubeadm kubelet kubectl
-
-# Initialize Kubernetes cluster
-sudo kubeadm init
-
-# Set up kubectl for the regular user
-mkdir -p $HOME/.kube
-sudo cp -i /etc/kubernetes/admin.conf $HOME/.kube/config
-sudo chown $(id -u):$(id -g) $HOME/.kube/config
-
-# Install Flannel CNI
-kubectl apply -f https://raw.githubusercontent.com/coreos/flannel/master/Documentation/kube-flannel.yml
+sudo apt update
+sudo apt upgrade -y
+sudo apt-get update
+sudo apt-get install docker.io -y
+sudo apt install -y curl apt-transport-https ca-certificates software-properties-common
+curl -s https://packages.cloud.google.com/apt/doc/apt-key.gpg | sudo apt-key add -
+sudo add-apt-repository "deb http://apt.kubernetes.io/ kubernetes-xenial main" 
+sudo swapoff -a
+sudo apt update
+sudo apt install -y kubelet kubeadm kubectl
