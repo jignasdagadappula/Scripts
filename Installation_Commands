@@ -24,3 +24,11 @@ sudo add-apt-repository "deb http://apt.kubernetes.io/ kubernetes-xenial main"
 sudo swapoff -a
 sudo apt update
 sudo apt install -y kubelet kubeadm kubectl
+
+## Generate the key in Master 
+--> sudo su
+--> kubeadm init
+
+## Steps in Slave machine
+--> sudo su
+--> enter the key
